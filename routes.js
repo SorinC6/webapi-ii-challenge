@@ -5,6 +5,8 @@ const db = require('./data/db.js');
 
 routes.use(express.json());
 
+routes.use(cors());
+
 // routes.get('/', (req, res) => {
 // 	console.log('Working');
 // 	db
