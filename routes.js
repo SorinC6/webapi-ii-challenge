@@ -31,4 +31,34 @@ routes.get('/', async (req, res) => {
 	}
 });
 
+// routes.get('/:id', (req, res) => {
+// 	const id = req.params.id;
+// 	db
+// 		.findById(id)
+// 		.then((post) => {
+// 			if (post.lenght) {
+// 				res.json(post);
+// 			} else {
+// 				res.status(404).json({ message: 'The post with the specified ID does not exist.' });
+// 			}
+// 		})
+// 		.catch((err) => {
+// 			res.status(500).json({ error: 'The post information could not be retrieved.' });
+// 		});
+// });
+
+routes.get('/:id', async (req, res) => {
+	try {
+		const id = req.params.id;
+		const post = await db.findById(id);
+		if (post.length) {
+			res.json(post);
+		} else {
+			res.status(404).json({ message: 'The post with the specified ID does not exist.' });
+		}
+	} catch (error) {
+		res.status(500).json({ error: 'The post information could not be retrieved.' });
+	}
+});
+
 module.exports = routes;
