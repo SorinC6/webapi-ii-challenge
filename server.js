@@ -1,9 +1,8 @@
 const express = require('express');
+const postRoutes = require('./routes');
 
 const server = express();
 
-server.use(express.json);
-
-const db = require('./data/db');
+server.use(postRoutes);
 
 module.exports = server;
