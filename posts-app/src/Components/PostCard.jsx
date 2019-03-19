@@ -5,12 +5,14 @@ import ImgPost from '../assets/post.png';
 const PostCard = ({ post }) => {
 	return (
 		<Card>
-			<h1>{post.title}</h1>
-			<p>{post.contents}</p>
-			<div>
-				<button>Delete</button>
-				<button>Update</button>
-			</div>
+			<Overlay>
+				<h1>{post.title}</h1>
+				<p>{post.contents}</p>
+				<div>
+					<button>Delete</button>
+					<button>Update</button>
+				</div>
+			</Overlay>
 		</Card>
 	);
 };
@@ -33,13 +35,13 @@ const Card = styled.div`
 	p {
 		display: none;
 	}
+
 	div {
 		display: none;
 	}
 
-	&:hover {
+	&:hover  {
 		background: #008cba;
-
 		opacity: 1;
 		transition: .5s ease;
 		p,
@@ -49,3 +51,5 @@ const Card = styled.div`
 		}
 	}
 `;
+
+const Overlay = styled.div`display: none;`;
