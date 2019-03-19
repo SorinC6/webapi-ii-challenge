@@ -1,19 +1,24 @@
 import React from 'react';
+import PostCard from './PostCard';
+import styled from 'styled-components';
 
 const PostList = ({ posts }) => {
 	return (
-		<div>
-			<p>Post List</p>
+		<ListWrapper>
 			{posts.map((post) => {
-				return (
-					<div>
-						<h2>{post.title}</h2>
-						<p>{post.contents}</p>
-					</div>
-				);
+				return <PostCard post={post} />;
 			})}
-		</div>
+		</ListWrapper>
 	);
 };
 
 export default PostList;
+
+const ListWrapper = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+`;
